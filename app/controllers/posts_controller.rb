@@ -2,6 +2,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    #render '/views/posts/index.html.erb'
+    respond_to do |format|
+      format.html
+      format.json {render :json => @posts}
+    end
   end
 
   def new
